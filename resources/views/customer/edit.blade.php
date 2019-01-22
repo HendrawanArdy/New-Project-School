@@ -1,0 +1,12 @@
+ini halaman edit <br/>
+@foreach ($customer as $customerlist)
+<form action ="{{route('customers.update', $customerlist->customer_id)}}"method="post">
+{{csrf_field()}}
+{{method_field('PUT')}}
+<input type="text" name="txt_name" value="{{$customerlist->name}}"/>
+<br/>
+<input type="text" name="txt_address" value="{{$customerlist->address}}"/>
+<br/>
+@endforeach
+<button type="submit">submit</button>
+<a href="{{url('customers')}}">index</a>
